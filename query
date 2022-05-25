@@ -1,0 +1,21 @@
+create table plants(
+	id int NOT NULL PRIMARY KEY,
+	name varchar(255) NOT NULL,
+	describe_is text NOT NULL,
+	point_at int NOT NULL,
+	other varchar(255)
+);
+
+create table responses(
+	id int NOT NULL PRIMARY KEY,
+	text_is VARCHAR(255) NOT NULL,
+	point_at int NOT NULL,
+	group_at int NOT NULL
+);
+
+create table questions(
+	id int NOT NULL PRIMARY KEY,
+	text_is varchar(255) NOT NULL,
+	id_responses int,
+	FOREIGN KEY (id_responses) REFERENCES responses(id)
+);
