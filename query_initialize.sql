@@ -1,6 +1,7 @@
 create table plants (
 	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	name varchar(255) NOT NULL,
+	image varchar(255) DEFAULT "/opt/assets/default-plant.png",
 	describe_is text NOT NULL,
 	point_at int NOT NULL,
 	other varchar(255)
@@ -11,14 +12,12 @@ create table responses (
 	text_is VARCHAR(255) NOT NULL,
 	point_at int NOT NULL,
 	group_at int NOT NULL
-    #KEY group_at_index (group_at)
 );
 
 create table questions (
 	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	text_is varchar(255) NOT NULL,
 	id_responses int
-	#FOREIGN KEY (id_responses) REFERENCES responses(group_at)
 );
 
 
@@ -195,5 +194,4 @@ insert into responses (text_is, point_at, group_at) values (
     5
 );
 
-#TEST
-#SELECT q.text_is, r.text_is  FROM questions q JOIN responses r ON q.id_responses = r.group_at;
+/*SELECT q.text_is, r.text_is  FROM questions q JOIN responses r ON q.id_responses = r.group_at;*/
